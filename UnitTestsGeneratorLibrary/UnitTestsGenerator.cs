@@ -18,7 +18,7 @@ namespace UnitTestsGeneratorLibrary
         private TransformBlock<TestClassEnvironment, TestClassEnvironment> _processTestingFile;
         private ActionBlock<TestClassEnvironment> _writeToFileBlock;
         
-        public async Task GenerateTests(GeneratorConfig generatorConfig)
+        public Task GenerateTests(GeneratorConfig generatorConfig)
         {
             _generatorConfig = generatorConfig;
 
@@ -37,7 +37,7 @@ namespace UnitTestsGeneratorLibrary
             }
             
             _readFileBlock.Complete();
-            await _writeToFileBlock.Completion;
+            return _writeToFileBlock.Completion;
         }
 
         //First TransformBlock<string, TestEnvironment> to read file
@@ -46,7 +46,7 @@ namespace UnitTestsGeneratorLibrary
             using var streamReader = new StreamReader(filename);
 
             var testFilename = Path.GetFileName(filename);
-            testFilename = testFilename[..^2] + "Tests.cs";
+            testFilename = testFilename[..^2] + "Tests.cs"; 
             
             return new TestClassEnvironment()
             {
