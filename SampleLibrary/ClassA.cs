@@ -10,21 +10,24 @@ namespace SampleLibrary
         {
             _dependency = dependency;
         }
-        
-        
+
+
         public bool Lie()
         {
             return false;
         }
 
-        public int Return3(int x)
-        {
-            return 3;
-        }
-
         public void SayTime(DateTime now)
         {
             Console.WriteLine(now);
+        }
+    }
+
+    public class ClassC
+    {
+        public int Return3(int x)
+        {
+            return 3;
         }
     }
 }

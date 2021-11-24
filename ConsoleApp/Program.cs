@@ -10,9 +10,9 @@ namespace ConsoleApp
             GeneratorConfig generatorConfig = new GeneratorConfig
             {
                 EndpointFolder = @"D:\Projects\SPP\UnitTestsGenerator\SampleLibrary.Tests\",
-                MaxParallelLoadCount = 1,
-                MaxParallelExecCount = 1,
-                MaxParallelWriteCount = 1
+                MaxParallelLoadCount = 2,
+                MaxParallelExecCount = 2,
+                MaxParallelWriteCount = 2
             };
             generatorConfig.Filenames.Add(@"D:\Projects\SPP\UnitTestsGenerator\SampleLibrary\ClassA.cs");
             generatorConfig.Filenames.Add(@"D:\Projects\SPP\UnitTestsGenerator\SampleLibrary\ClassB.cs");
